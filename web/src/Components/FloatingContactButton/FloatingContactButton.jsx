@@ -1,6 +1,7 @@
-// components/FloatingContactButton/FloatingContactButton.jsx
+// src/Components/FloatingContactButton/FloatingContactButton.jsx
 import React, { useState } from 'react';
 import { submitContactForm } from '../../services/api';
+import { useNotification } from '../../Context/NotificationContext'; // Ruta corregida
 
 const FloatingContactButton = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -11,8 +12,8 @@ const FloatingContactButton = () => {
     mensaje: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showNotification } = useNotification();
 
-  // Maneja los cambios de los inputs y textarea
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -20,16 +21,13 @@ const FloatingContactButton = () => {
     });
   };
 
-  // Maneja el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
       await submitContactForm(formData);
-      alert('¡Gracias por contactarnos! Te responderemos pronto.');
-      
-      // Reinicia el formulario
+      showNotification('¡Gracias por contactarnos! Te responderemos pronto.', 'success');
       setFormData({
         nombre: '',
         email: '',
@@ -38,7 +36,7 @@ const FloatingContactButton = () => {
       });
       setIsFormVisible(false);
     } catch (error) {
-      alert('Error al enviar el mensaje. Por favor, intenta nuevamente.');
+      showNotification('Error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
       console.error('Error:', error);
     } finally {
       setIsSubmitting(false);

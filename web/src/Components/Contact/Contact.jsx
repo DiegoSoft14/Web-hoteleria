@@ -1,6 +1,7 @@
-// components/Contact/Contact.jsx
+// src/Components/Contact/Contact.jsx
 import React, { useState } from 'react';
 import { submitContactForm } from '../../services/api';
+import { useNotification } from '../../Context/NotificationContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +11,8 @@ const Contact = () => {
     mensaje: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showNotification } = useNotification();
 
-  // Manejo de cambios en los inputs
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
@@ -19,16 +20,13 @@ const Contact = () => {
     }));
   };
 
-  // Manejo del envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
       await submitContactForm(formData);
-      alert('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.');
-
-      // Limpiar formulario
+      showNotification('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.', 'success');
       setFormData({
         nombre: '',
         email: '',
@@ -36,7 +34,7 @@ const Contact = () => {
         mensaje: ''
       });
     } catch (error) {
-      alert('Error al enviar el mensaje. Por favor, intenta nuevamente.');
+      showNotification('Error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
       console.error('Error:', error);
     } finally {
       setIsSubmitting(false);

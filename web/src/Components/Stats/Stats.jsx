@@ -6,7 +6,6 @@ const Stats = () => {
     { number: '98%', label: 'Clientes Satisfechos' },
     { number: '4.9', label: 'Calificación promedio' },
     { number: '250+', label: 'Habitaciones' },
-    { number: '5', label: 'Restaurantes' },
     { number: '2010', label: 'Año de fundación' },
     { number: '24/7', label: 'Servicio' }
   ];

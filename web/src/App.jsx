@@ -1,4 +1,4 @@
-// App.js
+// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -13,6 +13,8 @@ import FloatingContactButton from './Components/FloatingContactButton/FloatingCo
 import Experiences from './Components/Experiences/Experiences';
 import Testimonials from './Components/Testimonials/Testimonials';
 import TermsAndPrivacy from './Components/TermsAndPrivacy/TermsAndPrivacy';
+import Stats from './Components/Stats/Stats';
+import { NotificationProvider } from './Context/NotificationContext'; // Ruta corregida
 
 import './App.css';
 
@@ -50,7 +52,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
-      const sections = ['inicio', 'habitaciones', 'nosotros', 'servicios', 'experiencias', 'galeria', 'testimonios'];
+      const sections = ['inicio', 'habitaciones', 'nosotros', 'servicios', 'experiencias', 'estadisticas', 'galeria', 'testimonios'];
 
       let current = 'inicio';
       sections.forEach(section => {
@@ -69,31 +71,34 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Routes>
-        {/* Página principal */}
-        <Route
-          path="/"
-          element={
-            <div className="App">
-              <Header currentSection={currentSection} />
-              <Hero />
-              <Rooms />
-              <Nosotros />
-              <Amenities />
-              <Experiences />
-              <Testimonials testimonials={testimonialsData} />
-              <Gallery />
-              <Footer />
-              <FloatingContactButton />
-            </div>
-          }
-        />
+    <NotificationProvider>
+      <Router>
+        <Routes>
+          {/* Página principal */}
+          <Route
+            path="/"
+            element={
+              <div className="App">
+                <Header currentSection={currentSection} />
+                <Hero />
+                <Rooms />
+                <Nosotros />
+                <Amenities />
+                <Stats />
+                <Experiences />
+                <Testimonials testimonials={testimonialsData} />
+                <Gallery />
+                <Footer />
+                <FloatingContactButton />
+              </div>
+            }
+          />
 
-        {/* Ruta de Términos y Privacidad */}
-        <Route path="/terminos-y-privacidad" element={<TermsAndPrivacy />} />
-      </Routes>
-    </Router>
+          {/* Ruta de Términos y Privacidad */}
+          <Route path="/terminos-y-privacidad" element={<TermsAndPrivacy />} />
+        </Routes>
+      </Router>
+    </NotificationProvider>
   );
 }
 

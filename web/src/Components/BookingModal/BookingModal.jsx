@@ -1,6 +1,7 @@
-// components/BookingModal/BookingModal.jsx
+// src/Components/BookingModal/BookingModal.jsx
 import React, { useState } from "react";
 import { submitBooking } from '../../services/api';
+import { useNotification } from '../../Context/NotificationContext'; // Ruta corregida
 
 export default function BookingModal({ isOpen, onClose, type, item }) {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export default function BookingModal({ isOpen, onClose, type, item }) {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showNotification } = useNotification();
 
   if (!isOpen) return null;
 
@@ -29,7 +31,6 @@ export default function BookingModal({ isOpen, onClose, type, item }) {
     setIsSubmitting(true);
 
     try {
-      // Crear objeto para enviar al backend
       const bookingData = { ...formData };
 
       if (type === 'experience' && item) {
@@ -41,9 +42,14 @@ export default function BookingModal({ isOpen, onClose, type, item }) {
       }
 
       await submitBooking(bookingData);
-      alert("Reserva enviada correctamente ✅");
+      
+      showNotification(
+        type === 'experience' 
+          ? '¡Experiencia reservada con éxito! Te contactaremos pronto.' 
+          : '¡Habitación reservada con éxito! Te contactaremos pronto.',
+        'success'
+      );
 
-      // Limpiar formulario y cerrar modal
       setFormData({
         name: "",
         email: "",
@@ -55,7 +61,7 @@ export default function BookingModal({ isOpen, onClose, type, item }) {
       });
       onClose();
     } catch (error) {
-      alert("Error al enviar la reserva. Por favor, intenta nuevamente.");
+      showNotification('Error al enviar la reserva. Por favor, intenta nuevamente.', 'error');
       console.error("Error:", error);
     } finally {
       setIsSubmitting(false);

@@ -12,8 +12,8 @@ const images = [
     category: 'Exteriores'
   },
   {
-    id: 2,
-    src: '/images/comida.jpg',
+    id: 6,
+     src: '/images/comida.jpg',
     alt: 'Restaurante gourmet con ambiente elegante',
     category: 'Gastronomía'
   },
