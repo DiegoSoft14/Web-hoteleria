@@ -2,17 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import Rooms from './components/Rooms/Rooms';
-import Nosotros from './components/Nosotros/Nosotros';
-import Amenities from './components/Amenities/Amenities';
-import Gallery from './components/Gallery/Gallery';
-import Footer from './components/Footer/Footer';
-import FloatingContactButton from './components/FloatingContactButton/FloatingContactButton';
-import Experiences from './components/Experiences/Experiences';
-import Testimonials from './components/Testimonials/Testimonials';
-import TermsAndPrivacy from './components/TermsAndPrivacy/TermsAndPrivacy';
+import Header from './Components/Header/Header';
+import Hero from './Components/Hero/Hero';
+import Rooms from './Components/Rooms/Rooms';
+import Nosotros from './Components/Nosotros/Nosotros';
+import Amenities from './Components/Amenities/Amenities';
+import Gallery from './Components/Gallery/Gallery';
+import Footer from './Components/Footer/Footer';
+import FloatingContactButton from './Components/FloatingContactButton/FloatingContactButton';
+import Experiences from './Components/Experiences/Experiences';
+import Testimonials from './Components/Testimonials/Testimonials';
+import TermsAndPrivacy from './Components/TermsAndPrivacy/TermsAndPrivacy';
 
 import './App.css';
 
