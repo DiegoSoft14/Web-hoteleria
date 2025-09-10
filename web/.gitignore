@@ -22,3 +22,52 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ==========================
+# Node / React (Frontend)
+# ==========================
+node_modules/
+build/
+dist/
+.npm/
+.cache/
+coverage/
+*.lock
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================
+# Python / Flask (Backend)
+# ==========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+instance/
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# ==========================
+# IDEs / Editores
+# ==========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================
+# Logs y temporales
+# ==========================
+*.log
+*.out
+*.tmp
+.DS_Store
+Thumbs.db

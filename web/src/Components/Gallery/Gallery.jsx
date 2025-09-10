@@ -13,7 +13,7 @@ const images = [
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    src: '/images/comida.jpg',
     alt: 'Restaurante gourmet con ambiente elegante',
     category: 'Gastronomía'
   },

@@ -17,7 +17,7 @@ const Rooms = () => {
       features: ['Wi-Fi gratuito', 'TV pantalla plana', 'Aire acondicionado', 'Baño privado'],
       size: '25 m²',
       occupancy: 2,
-      bedType: 'Cama doble o twin'
+      bedType: 'Cama doble'
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const Rooms = () => {
       features: ['Vistas privilegiadas', 'Minibar', 'Zona de trabajo', 'Amenities de lujo'],
       size: '35 m²',
       occupancy: 2,
-      bedType: 'Cama king size'
+      bedType: 'Cama de Lujo'
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const Rooms = () => {
       features: ['Sala de estar', 'Escritorio ejecutivo', 'Acceso a lounge', 'Desayuno incluido'],
       size: '50 m²',
       occupancy: 2,
-      bedType: 'Cama king size'
+      bedType: 'Cama de Lujo'
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Rooms = () => {
       features: ['Terraza privada', 'Jacuzzi', 'Servicio de mayordomo', 'Vistas panorámicas'],
       size: '85 m²',
       occupancy: 3,
-      bedType: 'Cama king size'
+      bedType: 'Cama de Lujo'
     }
   ];
 
